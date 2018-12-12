@@ -1,0 +1,32 @@
+.footer {
+    max-width: 935px;
+    width: 100%;
+    margin: 55px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    flex-wrap: wrap;
+    .column {
+      margin-bottom: 15px;
+      margin-left: 5rem;
+      .nav {
+        .list {
+          display: flex;
+          flex-wrap: wrap;
+          list-style: none;
+          .listItem {
+            margin-right: 15px;
+            color: white;
+            cursor: pointer;
+          }
+        }
+      }
+      .copyright {
+        color: white;
+        margin-right: 6rem;
+      }
+    }
+  }

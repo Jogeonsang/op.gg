@@ -1,0 +1,21 @@
+@import "~reset-css/reset.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300:400,500");
+
+
+body {
+    background: linear-gradient(52deg, #5383e8, #3991ef 31%, #3892f0 32%, #3594f1 36%, #00b2ff);
+    background-image: linear-gradient(52deg, rgb(83, 131, 232), rgb(57, 145, 239) 31%, rgb(56, 146, 240) 32%, rgb(53, 148, 241) 36%, rgb(0, 178, 255));
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat: repeat-x;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+img {
+    max-width: 100%;
+  }

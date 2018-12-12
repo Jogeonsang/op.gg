@@ -1,0 +1,19 @@
+.navigation {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    .listItem {
+      margin-right: 15px;
+            color: #003569;
+            cursor: pointer;
+      .logo {
+        max-width: 220px;
+      }
+  }
+ }
+}
