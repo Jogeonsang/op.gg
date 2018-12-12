@@ -1,19 +1,26 @@
 .navigation {
+  padding-top: 10px;
+  padding-left: 15px;
   width: 100%;
   display: flex;
-  justify-content: center;
   box-sizing: border-box;
+  .logo {
+    width: 100%;
+    height: 100%;
+    width: 95px;
+    border-right: 1px solid white;
+    padding-right: 25px;
+  }
   .list {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     .listItem {
       margin-right: 15px;
-            color: #003569;
+            color: white;
             cursor: pointer;
-      .logo {
-        max-width: 220px;
-      }
+  } :nth-child(1) {
+    padding-left: 10px;
   }
  }
 }
