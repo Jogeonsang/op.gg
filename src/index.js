@@ -2,4 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from 'components/App/index';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// redux & saga
+import { Provider} from 'react-redux';
+import createNewStore from './redux/createNewStore';
+
+// create store
+const store = createNewStore()
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App /> 
+  </Provider>,
+document.getElementById('root')
+);

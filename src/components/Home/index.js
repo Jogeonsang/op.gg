@@ -10,6 +10,7 @@ const Home = props => (
           />
         <form className={styles.summoner_form}>
             <input className={styles.summoner_search}/>
+            <button className={styles.summoner_search_btn}>.GG</button>
         </form>
     </div>
 )

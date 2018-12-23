@@ -15,19 +15,27 @@
         margin: 0 auto;
         border-radius: 2px;
         background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
         .summoner_search {
-            display: block;
-            width: 100%;
+            display: inline;
+            width: 574px;
             padding: 15px 150px 18px 17px;
             background: none;
             border: none;
             line-height: 17px;
             font-size: 14px;
             color: #9b9b9b;
-            background-color: white;
             box-sizing: border-box;
             outline: none;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+        }
+        .summoner_search_btn {
+            display: inline;
+            border: none;
+            background-color: #1EB3FC;
+            font-weight: 600;
+            color: white;
+            height: 30px;
+            width: 50px;
         }
     }
 } 
