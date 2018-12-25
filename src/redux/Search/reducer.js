@@ -1,37 +1,37 @@
-// import {
-//     SET_FEED_REQUEST, 
-//     SET_FEED_SUCCESS, 
-//     SET_FEED_FAILURE
-// } from './action'
+import {
+    GET_SUMMONER_REQUEST,
+    GET_SUMMONER_SUCCESS,
+    GET_SUMMONER_FAILURE,
+} from './action'
 
-// // 초기상태
+// 초기상태
 
-// const Feed = (
-//     state = {
-//         isLoading: true,
-//         items: [],
-//     },
-//     action
-// ) => {
-//     switch(action.type) {
-//         case SET_FEED_REQUEST:
-//             return {
-//                 ...state,
-//             }
-//         case SET_FEED_SUCCESS:
-//             return {
-//                 isLoading: false,
-//                 items: action.items,
-//                 error: null,
-//             }
-//         case SET_FEED_FAILURE:
-//             return {
-//                 isLoading: false,
-//                 error: action.error
-//             }
-//             default:
-//                 return state;
-//     }
-// }
+const SummonerInfo = (
+    state = {
+        isLoading: true,
+        items: [],
+    },
+    action
+) => {
+    switch(action.type) {
+        case GET_SUMMONER_REQUEST:
+            return {
+                ...state,
+            }
+        case GET_SUMMONER_SUCCESS:
+            return {
+                isLoading: false,
+                items: {...action.summonerInfo},
+                error: null,
+            }
+        case GET_SUMMONER_FAILURE:
+            return {
+                isLoading: false,
+                error: action.error
+            }
+            default:
+                return state;
+    }
+}
 
-// export default Feed
+export default SummonerInfo

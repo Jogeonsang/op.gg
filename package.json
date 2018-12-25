@@ -11,6 +11,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
     "redux-saga": "^0.16.2",
     "reset-css": "^4.0.1",
     "sass-loader": "^7.1.0"

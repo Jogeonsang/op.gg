@@ -1,7 +1,7 @@
-// import { all }  from 'redux-saga/effects';
+import { all }  from 'redux-saga/effects';
 
-// import watchSetFeed from './Feed/saga';
+import watchgetSummonerInfo from './Search/saga';
 
-// export default function* setFeedRoot() {
-//     yield all([watchSetFeed()]);
-// }
+export default function* setFeedRoot() {
+    yield all([watchgetSummonerInfo()]);
+}
