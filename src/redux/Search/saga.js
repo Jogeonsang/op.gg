@@ -14,7 +14,7 @@ export function* getSummoner(actions) {
     yield put(getSummonerRequest());
     try {
     const summonerInfo = yield call(getSummonerInfo, summonerName);
-    yield put(getSummonerSuccess(summonerInfo));
+    yield put(getSummonerSuccess(summonerInfo.data));
   } catch (error) {
     console.log('error:', error)
     yield put(getSummonerFailure(error));

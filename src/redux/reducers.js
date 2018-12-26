@@ -1,5 +1,5 @@
-import Serach from './Search/reducer';
+import Search from './Search/reducer';
 
 export default {
-    Serach,
+    Search,
 };

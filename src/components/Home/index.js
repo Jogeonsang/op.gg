@@ -13,11 +13,15 @@ class Home extends React.Component {
             summonerName: '',
         }
     }
+    // componentWillReceiveProps(nextProps) {
+    //     if(nextProps.summonerInfo) {
+            
+    //     }
+    // }
     searchSummoner = (e) => {
         e.preventDefault();
         const { summonerName } = this.state
         this.props.getSummoner(summonerName)
-        console.log(summonerName);
     }
     handleInputChange = (e) => {
         this.setState({summonerName: e.target.value});
@@ -40,6 +44,6 @@ class Home extends React.Component {
 }
 
 export default connect(
-    ({SummonerInfo}) => ({SummonerInfo: SummonerInfo}),
+    ({ Search }) => ({summonerInfo: Search.summonerInfo}),
     { getSummoner }
     )(Home)

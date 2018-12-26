@@ -5,6 +5,7 @@ import App from 'components/App/index';
 // redux & saga
 import { Provider} from 'react-redux';
 import createNewStore from './redux/createNewStore';
+import reducers from './redux/reducers';
 
 // create store
 const store = createNewStore()

@@ -6,10 +6,10 @@ import {
 
 // 초기상태
 
-const SummonerInfo = (
+const summonerInfo = (
     state = {
         isLoading: true,
-        items: [],
+        summonerInfo: [],
     },
     action
 ) => {
@@ -21,7 +21,7 @@ const SummonerInfo = (
         case GET_SUMMONER_SUCCESS:
             return {
                 isLoading: false,
-                items: {...action.summonerInfo},
+                summonerInfo: action.summonerInfo,
                 error: null,
             }
         case GET_SUMMONER_FAILURE:
@@ -34,4 +34,4 @@ const SummonerInfo = (
     }
 }
 
-export default SummonerInfo
+export default summonerInfo
