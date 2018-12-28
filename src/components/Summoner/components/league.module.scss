@@ -1,6 +1,34 @@
 .TierBox {
+    display: flex;
     border: 1px solid #cdd2d2;
     box-shadow: 0 1px #dcdfdf;
     background: #f2f2f2;
     border-radius: 2px;
+    width: 298px;
+    .solo_league_tier {
+        width: 135px;
+        height: 116px;
+        .solo_tier_image {
+            width: 96px;
+            height: 96px;
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+    }
+    .solo_league_info {
+        margin: 5px;
+        .solo_rank_tier {
+            color: #3696D0;
+            font-size: 13px;
+        }
+        .solo_point {
+            color: #555e5e;
+            font-size: 13px;
+        }
+        .solo_winlose {
+            color: #adb5bd;
+            font-size: 12px;
+        }
+    }
 }
