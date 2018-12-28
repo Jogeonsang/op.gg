@@ -1,5 +1,5 @@
-import Search from './Search/reducer';
+import summoner from './Summoner/reducer';
 
 export default {
-    Search,
+    summoner,
 };

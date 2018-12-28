@@ -1,7 +1,8 @@
-import { all }  from 'redux-saga/effects';
+import { all, fork }  from 'redux-saga/effects';
 
-import watchgetSummonerInfo from './Search/saga';
-
+import summonerRoot from './Summoner/saga';
 export default function* setFeedRoot() {
-    yield all([watchgetSummonerInfo()]);
+    yield all([
+        fork(summonerRoot),
+    ]);
 }

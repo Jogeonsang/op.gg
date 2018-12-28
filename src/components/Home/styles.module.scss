@@ -28,6 +28,9 @@
             box-sizing: border-box;
             outline: none;
         }
+        .summoner_search_link {
+            text-decoration: none;
+        }
         .summoner_search_btn {
             display: inline;
             border: none;
@@ -36,6 +39,8 @@
             color: white;
             height: 30px;
             width: 50px;
+            outline: none;
+            cursor: pointer;
         }
     }
 } 

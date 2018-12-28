@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { Redirect } from 'react-router-dom';
 // src modules
-import { getSummoner } from 'redux/Search/action';
+import { getSummoner } from 'redux/Summoner/search/action';
 import styles from './styles.module.scss';
 
 
@@ -10,14 +10,15 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            redirect: '',
             summonerName: '',
         }
     }
-    // componentWillReceiveProps(nextProps) {
-    //     if(nextProps.summonerInfo) {
-            
-    //     }
-    // }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.summonerInfo) {
+            this.setState({ redirect: { to: 'summoner' }});
+        }
+    }
     searchSummoner = (e) => {
         e.preventDefault();
         const { summonerName } = this.state
@@ -27,6 +28,9 @@ class Home extends React.Component {
         this.setState({summonerName: e.target.value});
     }
     render() {
+        const { redirect } = this.state;
+        if (redirect) return <Redirect {...redirect} />;
+
         return(
             <div className={styles.container}>
           <img
@@ -36,7 +40,7 @@ class Home extends React.Component {
           />
         <form className={styles.summoner_form} onSubmit={this.searchSummoner}>
             <input className={styles.summoner_search} type='text' value={this.state.summonerName} onChange={this.handleInputChange}/>
-            <button className={styles.summoner_search_btn} type='submit'>.GG</button>
+            <button className={styles.summoner_search_btn}>.GG </button>
         </form>
         </div>
         );
@@ -44,6 +48,6 @@ class Home extends React.Component {
 }
 
 export default connect(
-    ({ Search }) => ({summonerInfo: Search.summonerInfo}),
+    ({ summoner }) => ({summonerInfo: summoner.search.summonerInfo}),
     { getSummoner }
     )(Home)

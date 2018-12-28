@@ -21,6 +21,6 @@ export function* getSummoner(actions) {
   }
 }
 
-export default function* watchgetSummonerInfo() {
+export function* watchgetSummonerInfo() {
   yield takeEvery(GET_SUMMONER, getSummoner);
 }
