@@ -1,7 +1,5 @@
 import React from 'react';
-import league from '../../../redux/Summoner/league/reducer';
 import styles from './league.module.scss';
-import { type } from 'os';
 
 const League = ({
     leagueInfo
@@ -25,7 +23,7 @@ const League = ({
                     </div>
                     <span className={styles.solo_point}>{rank_solo[0].leaguePoints} LP </span>
                     <span className={styles.solo_winlose}>/ {rank_solo[0].wins}승 {rank_solo[0].losses} 패</span>
-                    <div className={styles.solo_rate}>승률 51%</div>
+                    <div className={styles.solo_rate}>승률 {Math.floor(rank_solo[0].wins / (rank_solo[0].wins+rank_solo[0].losses) * 100)}%</div>
                     <div className={styles.solo_leagueName}>{rank_solo[0].leagueName}</div>
                 </div>
             </div>
@@ -44,7 +42,7 @@ const League = ({
                     </div>
                     <div className={styles.team_winloseInfo}>
                         <div className={styles.team_winlose}> {rank_team[0].wins}승 {rank_team[0].losses}패</div>
-                        <div className={styles.team_winratio}> 승률 51%</div>
+                        <div className={styles.team_winratio}> 승률{Math.floor(rank_team[0].wins / (rank_team[0].wins+rank_team[0].losses) * 100)}%</div>
                     </div>
                 </div>
             </div>

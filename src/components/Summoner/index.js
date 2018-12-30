@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // src module
-import { getLeague } from '../../redux/Summoner/action';
+import { getLeague } from 'redux/Summoner/action';
 import styles from './styles.module.scss';
 
 // relative path import
-import League from './components/league';
+import League from './components/league/league';
 
 class Summoner extends Component {
     constructor(props) {
