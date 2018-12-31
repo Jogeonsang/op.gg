@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // src module
-import { getLeague } from 'redux/Summoner/action';
-import { getGameList } from 'redux/Summoner/action';
+import { getLeague } from 'redux/Summoner/league/action';
+import { getGameList, getDetailGameList } from 'redux/Summoner/gameList/action';
 import styles from './styles.module.scss';
 
 // relative path import
 import League from './components/league/league';
+import GameList from './components/gameList';
+import { throws } from 'assert';
 
 class Summoner extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            summonerId: '',
-            accountId: '',
+            gameId: '',
         }
     }
 
@@ -24,7 +25,6 @@ class Summoner extends Component {
         this.props.getGameList(accountId)
     }
     renderLeague() {
-        console.log(this.props)
         const { leagueInfo } = this.props.leagueInfo;
         if(!this.props.leagueInfo.isLoading) {
             return (
@@ -32,14 +32,15 @@ class Summoner extends Component {
             )
         }
     }
-    // renderGameList() {
-    //     const { matches } = this.props.gameList
-    //     if(!this.props.gameList.isLoading) {
-    //         return (
-    //             matches.map(gameList => console.log(gameList))
-    //         );
-    //     }
-    // }
+    renderGameList() {
+        const { matches } = this.props.gameList.gameList
+        if(!this.props.gameList.isLoading) {
+             matches.map(detail => {
+                 const { gameId } = detail
+                 console.log(gameId);
+                })
+        }
+    }
     render() {
         return (
             <div className={styles.warp}>
@@ -47,7 +48,7 @@ class Summoner extends Component {
                     {this.renderLeague()}
                 </div>
                 <div className={styles.main_contents}>
-                    {/* {this.renderGameList()} */}
+                    {this.renderGameList()}
                 </div>
             </div>
         )
@@ -63,5 +64,6 @@ export default connect(
     {
         getLeague,
         getGameList,
+        getDetailGameList,
     }
     )(Summoner)

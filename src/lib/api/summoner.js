@@ -12,3 +12,7 @@ export const getSummonerLeagueInfo = (summonerId) => {
 export const getGameList = (accountId, endIndex) => {
     return axios.get(`https://kr.api.riotgames.com/lol/match/v4/matchlists/by-account/${accountId}?endIndex=10&api_key=${api_key}`)
 }
+
+export const getDetailGameList = (gameId) => {
+    return axios.get(`https://kr.api.riotgames.com/lol/match/v4/matches/${gameId}?api_key=${api_key}`)
+}
