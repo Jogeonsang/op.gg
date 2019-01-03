@@ -16,7 +16,7 @@ const game = (
     state = {
         isLoading: true,
         gameList: [],
-        gameInfo: []
+        gameInfo: [],
     },
     action
 ) => {
@@ -27,6 +27,7 @@ const game = (
             }
         case GET_GAMELIST_SUCCESS:
             return {
+                ...state,
                 isLoading: false,
                 gameList: action.gameList.data,
                 error: null,
@@ -42,8 +43,9 @@ const game = (
             }
         case GET_DETAIL_GAMELIST_SUCCESS:
             return {
+                ...state,
                 isLoading: false,
-                gameInfo: action.gameInfo.data,
+                gameInfo: [...state.gameInfo, action.detailGameList.data],
                 error: null,
             }
         case GET_DETAIL_GAMELIST_FAILURE:

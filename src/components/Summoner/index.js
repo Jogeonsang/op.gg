@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // src module
 import { getLeague } from 'redux/Summoner/league/action';
-import { getGameList, getDetailGameList } from 'redux/Summoner/gameList/action';
+import { getGameList } from 'redux/Summoner/gameList/action';
 import styles from './styles.module.scss';
 
 // relative path import
@@ -33,12 +33,13 @@ class Summoner extends Component {
         }
     }
     renderGameList() {
-        const { matches } = this.props.gameList.gameList
         if(!this.props.gameList.isLoading) {
-             matches.map(detail => {
-                 const { gameId } = detail
-                 console.log(gameId);
-                })
+            return (
+                <GameList 
+                    matches={this.props.gameList.gameList.matches} 
+                    summonerInfo={this.props.summonerInfo}
+                />
+            )
         }
     }
     render() {
@@ -64,6 +65,5 @@ export default connect(
     {
         getLeague,
         getGameList,
-        getDetailGameList,
     }
     )(Summoner)

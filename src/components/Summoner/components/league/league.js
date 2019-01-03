@@ -9,8 +9,6 @@ const League = ({
     leagueInfo.map(rank => 
         rank.queueType === 'RANKED_SOLO_5x5' ? rank_solo.push(rank) : rank_team.push(rank)
     )
-    // leagueInfo.map(rank =>
-    //     rank.queueType === 'RANKED_SOLO_5x5' ? (rank) => rank_solo : (rank) => rank_team)
     return (
         <div className={styles.TierBox}>
             <div className={styles.TierBox_solo}>
