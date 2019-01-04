@@ -1,0 +1,27 @@
+.championInfo {
+  font-size: 12px;
+  width: 70px;
+  color: #555;
+  text-align: center;
+  line-height: 16px;
+  margin-left: 5px;
+  margin-top: auto;
+  margin-bottom: auto;
+  .queue {
+    font-weight: bold;
+    width: 70px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .bar {
+    display: block;
+    width: 27px;
+    margin: 5px auto;
+    height: 2px;
+    background-color: #eaeaea;
+  }
+  .winlose {
+    color: #1a78ae;
+    font-weight: bold;
+  }
+}

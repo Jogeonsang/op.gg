@@ -1,11 +1,13 @@
 .gameList {
-    border: 1px solid #adb5bd;
+  border: 1px solid #cdd2d2;
+  width: 700px;
+  height: 100px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px #dcdfdf;
+  .winlose {
+    display: flex;
     width: 700px;
     height: 100px;
-    margin-left: 40px;
-    margin-bottom: 10px;
-    .winlose {
-        width: 700px;
-        height: 100px;
-    }
+  }
 }
