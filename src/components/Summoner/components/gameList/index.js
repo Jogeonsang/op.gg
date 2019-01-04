@@ -2,13 +2,20 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles from './styles.module.scss';
 import { getDetailGameList } from 'redux/Summoner/gameList/action';
-import championInfo from './championInfo';
-
+import ChampionInfo from './championInfo';
+import GameInfo from './gameInfo';
+const win = {
+    backgroundColor : '#A2CFEC'
+}
+const lose = {
+    backgroundColor :  '#E2B5B3'
+}
 class GameList extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             gameList: [],
+            teamId: null,
         }
     }
 
@@ -29,13 +36,22 @@ class GameList extends React.Component {
                         return userList.participantId;
                     }
                 });
-
+                const userInfo = participants.filter(userList => {
+                    if(participant[0].participantId === userList.participantId) {
+                        return userList
+                }
+                });
+                const winloseStyle = userInfo[0].stats.win ? win : lose;
                 return (
-                    <div>
-                      <championInfo 
+                    <div className={styles.gameList}>
+                        <div className={styles.winlose} style={winloseStyle}>
+                      <GameInfo />
+                      <ChampionInfo 
+                        userinfo={userInfo}
                         participants={participants}
                         participant={participant}
                       />
+                      </div>
                     </div>
                 )
             });
