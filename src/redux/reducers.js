@@ -1,5 +1,6 @@
-import summoner from './Summoner/reducer';
-
+import summoner from "./Summoner/reducer";
+import staticData from "./static/reucer";
 export default {
-    summoner,
+  summoner,
+  staticData
 };

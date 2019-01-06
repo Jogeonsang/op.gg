@@ -1,69 +1,65 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 // src module
-import { getLeague } from 'redux/Summoner/league/action';
-import { getGameList } from 'redux/Summoner/gameList/action';
-import styles from './styles.module.scss';
+import { getLeague } from "redux/Summoner/league/action";
+import { getGameList } from "redux/Summoner/gameList/action";
+import { getChampions } from "redux/static/action";
+import styles from "./styles.module.scss";
 
 // relative path import
-import League from './components/league/league';
-import GameList from './components/gameList';
-import { throws } from 'assert';
+import League from "./components/league/league";
+import GameList from "./components/gameList";
 
 class Summoner extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            gameId: '',
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      gameId: ""
+    };
+  }
 
-    componentDidMount() {
-        const { id, accountId } = this.props.summonerInfo
-        this.props.getLeague(id)
-        this.props.getGameList(accountId)
+  componentDidMount() {
+    const { id, accountId } = this.props.summonerInfo;
+    this.props.getLeague(id);
+    this.props.getGameList(accountId);
+    this.props.getChampions();
+  }
+  renderLeague() {
+    const { leagueInfo } = this.props.leagueInfo;
+    if (!this.props.leagueInfo.isLoading) {
+      return <League leagueInfo={leagueInfo} />;
     }
-    renderLeague() {
-        const { leagueInfo } = this.props.leagueInfo;
-        if(!this.props.leagueInfo.isLoading) {
-            return (
-                <League leagueInfo={leagueInfo} />
-            )
-        }
+  }
+  renderGameList() {
+    if (!this.props.gameList.isLoading) {
+      return (
+        <GameList
+          matches={this.props.gameList.gameList.matches}
+          summonerInfo={this.props.summonerInfo}
+        />
+      );
     }
-    renderGameList() {
-        if(!this.props.gameList.isLoading) {
-            return (
-                <GameList 
-                    matches={this.props.gameList.gameList.matches} 
-                    summonerInfo={this.props.summonerInfo}
-                />
-            )
-        }
-    }
-    render() {
-        return (
-            <div className={styles.warp}>
-                <div className={styles.side_contents}>
-                    {this.renderLeague()}
-                </div>
-                <div className={styles.main_contents}>
-                    {this.renderGameList()}
-                </div>
-            </div>
-        )
-    }
+  }
+  render() {
+    return (
+      <div className={styles.warp}>
+        <div className={styles.side_contents}>{this.renderLeague()}</div>
+        <div className={styles.main_contents}>{this.renderGameList()}</div>
+      </div>
+    );
+  }
 }
 export default connect(
-    ({ summoner}) => 
-    ({
-        summonerInfo: summoner.search.summonerInfo,
-        leagueInfo: summoner.league,
-        gameList: summoner.game,
-    }),
-    {
-        getLeague,
-        getGameList,
-    }
-    )(Summoner)
+  ({ summoner, staticData }) => ({
+    summonerInfo: summoner.search.summonerInfo,
+    leagueInfo: summoner.league,
+    gameList: summoner.game,
+    champions: staticData.champions
+  }),
+  {
+    getLeague,
+    getGameList,
+    getChampions
+  }
+)(Summoner);
