@@ -32,11 +32,12 @@ class Summoner extends Component {
     }
   }
   renderGameList() {
-    if (!this.props.gameList.isLoading) {
+    if (!this.props.gameList.isLoading && !this.props.champions.isLoading) {
       return (
         <GameList
           matches={this.props.gameList.gameList.matches}
           summonerInfo={this.props.summonerInfo}
+          champions={this.props.champions}
         />
       );
     }
@@ -55,7 +56,7 @@ export default connect(
     summonerInfo: summoner.search.summonerInfo,
     leagueInfo: summoner.league,
     gameList: summoner.game,
-    champions: staticData.champions
+    champions: staticData.champions.data
   }),
   {
     getLeague,

@@ -41,21 +41,30 @@ class GameList extends React.Component {
             return userList;
           }
         });
+        const find_player = participantIdentities.filter(player => {
+          return player.player.summonerName;
+        });
+        const find_championId = participants.map(async player => {
+          return await player;
+        });
         const winloseStyle = userInfo[0].stats.win ? win : lose;
         return (
           <div className={styles.gameList}>
             <div className={styles.winlose} style={winloseStyle}>
-              <GameInfo
-                queueId={gameList.queueId}
-                gameCreation={gameList.gameCreation}
-                gameDuration={gameList.gameDuration}
-                winlose={userInfo[0].stats.win}
-              />
-              <ChampionInfo
-                userinfo={userInfo}
-                participants={participants}
-                participant={participant}
-              />
+              <div className={styles.content}>
+                <GameInfo
+                  queueId={gameList.queueId}
+                  gameCreation={gameList.gameCreation}
+                  gameDuration={gameList.gameDuration}
+                  winlose={userInfo[0].stats.win}
+                />
+                <ChampionInfo
+                  participantIdentities={participantIdentities}
+                  participants={participants}
+                  userInfo={userInfo}
+                  champions={this.props.champions}
+                />
+              </div>
             </div>
           </div>
         );
