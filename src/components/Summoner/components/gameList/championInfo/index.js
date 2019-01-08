@@ -1,24 +1,12 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import { of } from "rxjs";
 const ChampionInfo = ({ userInfo, champions }) => {
-  //   console.log(champions.data);
   const championData = [];
   for (let i in champions.data) {
     if (champions.data[i].key == userInfo[0].championId) {
       championData.push(champions.data[i]);
     }
   }
-  //   const player = participants.map(playerId => {
-  //       return playerId
-  //   })
-  //   find_player.filter(playerList => {
-  //     if (playerList.participantId === find_championId.participantId) {
-  //       console.log(playerList);
-  //     }
-  //   });
-  //   console.log("find_champion:", find_championId);
-  //   console.log("find_player:", participantIdentities);
   return (
     <div className={styles.userStat}>
       <div className={styles.profileBox}>

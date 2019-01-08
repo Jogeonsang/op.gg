@@ -1,0 +1,29 @@
+.summonerBox {
+  display: table;
+  width: 348px;
+  border: 1px solid #cdd2d2;
+  box-shadow: 0 1px #dcdfdf;
+  background: #f2f2f2;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  .summonerProfileImg {
+    display: table-cell;
+    vertical-align: middle;
+    width: 70px;
+    padding: 10px;
+  }
+  .summonerInfo {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 13px;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 5px;
+    .summonerName {
+      color: #555;
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+  }
+}

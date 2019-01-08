@@ -8,6 +8,7 @@ import { getChampions } from "redux/static/action";
 import styles from "./styles.module.scss";
 
 // relative path import
+import SummonerInfo from "./components/summoner";
 import League from "./components/league/league";
 import GameList from "./components/gameList";
 
@@ -24,6 +25,12 @@ class Summoner extends Component {
     this.props.getLeague(id);
     this.props.getGameList(accountId);
     this.props.getChampions();
+  }
+  renderSummoner() {
+    const { summonerInfo } = this.props;
+    if (!this.props.summonerInfo.isLoading) {
+      return <SummonerInfo summonerInfo={summonerInfo} />;
+    }
   }
   renderLeague() {
     const { leagueInfo } = this.props.leagueInfo;
@@ -45,7 +52,10 @@ class Summoner extends Component {
   render() {
     return (
       <div className={styles.warp}>
-        <div className={styles.side_contents}>{this.renderLeague()}</div>
+        <div className={styles.side_contents}>
+          {this.renderSummoner()}
+          {this.renderLeague()}
+        </div>
         <div className={styles.main_contents}>{this.renderGameList()}</div>
       </div>
     );

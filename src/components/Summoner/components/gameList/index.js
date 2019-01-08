@@ -41,12 +41,6 @@ class GameList extends React.Component {
             return userList;
           }
         });
-        const find_player = participantIdentities.filter(player => {
-          return player.player.summonerName;
-        });
-        const find_championId = participants.map(async player => {
-          return await player;
-        });
         const winloseStyle = userInfo[0].stats.win ? win : lose;
         return (
           <div className={styles.gameList}>
@@ -59,8 +53,6 @@ class GameList extends React.Component {
                   winlose={userInfo[0].stats.win}
                 />
                 <ChampionInfo
-                  participantIdentities={participantIdentities}
-                  participants={participants}
                   userInfo={userInfo}
                   champions={this.props.champions}
                 />
