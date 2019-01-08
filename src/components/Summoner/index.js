@@ -29,13 +29,17 @@ class Summoner extends Component {
   renderSummoner() {
     const { summonerInfo } = this.props;
     if (!this.props.summonerInfo.isLoading) {
-      return <SummonerInfo summonerInfo={summonerInfo} />;
+      if (summonerInfo) {
+        return <SummonerInfo summonerInfo={summonerInfo} />;
+      }
     }
   }
   renderLeague() {
     const { leagueInfo } = this.props.leagueInfo;
     if (!this.props.leagueInfo.isLoading) {
-      return <League leagueInfo={leagueInfo} />;
+      if (leagueInfo) {
+        return <League leagueInfo={leagueInfo} />;
+      }
     }
   }
   renderGameList() {

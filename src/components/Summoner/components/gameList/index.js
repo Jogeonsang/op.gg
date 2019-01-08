@@ -21,10 +21,12 @@ class GameList extends React.Component {
 
   componentDidMount() {
     const { matches } = this.props;
-    matches.map(game => {
-      const { gameId } = game;
-      this.props.getDetailGameList(gameId);
-    });
+    if (matches) {
+      matches.map(game => {
+        const { gameId } = game;
+        this.props.getDetailGameList(gameId);
+      });
+    }
   }
 
   renderDiv() {
@@ -62,7 +64,7 @@ class GameList extends React.Component {
         );
       });
     } else {
-      return <p>로딩중입니다</p>;
+      return <div className={styles.loading}>로딩중입니다</div>;
     }
   }
 
